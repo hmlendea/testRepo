@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: echo "Running on pull requests!"
+        run: echo "Running on merge!"
