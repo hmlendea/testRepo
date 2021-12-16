@@ -21,5 +21,5 @@ jobs:
         contentPath: 'releases/mcn_CK3_${{ env.VERSION }}.zip'
         changelog: '${{ env.VERSION }}'
       env:
-        STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-        STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+        STEAM_USERNAME: ${{ secrets.MCN_STEAM_USERNAME }}
+        STEAM_PASSWORD: ${{ secrets.MCN_STEAM_PASSWORD }}
