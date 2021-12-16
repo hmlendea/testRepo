@@ -24,7 +24,7 @@ jobs:
         appid: 1158310
         itemid: 2462509364
         path: "mcn_CK3_${{ env.VERSION }}.zip"
-        changenote: "Version ${{ env.VERSION }}"
+        changenote: "[url=https://steamcommunity.com/linkfilter/?url=https://github.com/hmlendea/more-cultural-names/releases/tag/v${{ env.VERSION}}]Version ${{ env.VERSION }}[/url]"
       env:
         STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
         STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
