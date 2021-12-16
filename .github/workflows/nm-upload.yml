@@ -1,0 +1,39 @@
+name: Nexus Mods
+
+on:
+  push:
+    tags:
+    - 'v*.*.*'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Download release assets
+      run: |
+        CURRENT_VERSION=${GITHUB_REF:11}
+        echo VERSION=${CURRENT_VERSION} >> $GITHUB_ENV
+        wget "https://github.com/hmlendea/testRepo/releases/download/v${CURRENT_VERSION}/mcn_CK3_${CURRENT_VERSION}.zip"
+
+    - uses: greatness7/nexusmods_file_updater@v2
+      with:
+        username: ${{secrets.NEXUS_USERNAME}}
+        password: ${{secrets.NEXUS_PASSWORD}}
+        game_domain_name: "crusaderkings3"
+        mod_id: "21"
+        file_name: "test"
+        file_version: ${{env.VERSION}}
+        update_version: true
+        file_category: "Main Files"
+        new_existing_version: true
+        original_file: "test.*"
+        remove_old_version: true
+        file_description: "Changelog: https://github.com/hmlendea/testRepo/releases/v${{env.VERSION}}"
+        remove_nmm_button: false
+        set_as_main_nmm: true
+        requirements_pop_up: true
+        file_path: "mcn_CK3_${{env.VERSION}}.zip"
