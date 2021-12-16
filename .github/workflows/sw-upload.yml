@@ -19,7 +19,7 @@ jobs:
         echo VERSION=${CURRENT_VERSION} >> $GITHUB_ENV
         wget "https://github.com/hmlendea/testRepo/releases/download/v${CURRENT_VERSION}/mcn_CK3_${CURRENT_VERSION}.zip"
     - name: steam-workshop-upload
-      uses: hmlendea/steam-workshop-upload@v1
+      uses: Weilbyte/steam-workshop-upload@v1
       with:
         appid: 1158310
         itemid: 2462509364
