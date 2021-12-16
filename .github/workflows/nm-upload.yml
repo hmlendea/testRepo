@@ -34,6 +34,6 @@ jobs:
         remove_old_version: true
         file_description: "Changelog: https://github.com/hmlendea/testRepo/releases/v${{env.VERSION}}"
         remove_nmm_button: false
-        set_as_main_nmm: true
+        set_as_main_nmm: false
         requirements_pop_up: true
         file_path: "mcn_CK3_${{env.VERSION}}.zip"
