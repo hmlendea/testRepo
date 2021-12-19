@@ -13,14 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Download release assets
-      run: wget "https://github.com/hmlendea/testRepo/releases/download/${{github.ref_name}}/mcn_CK3_${GITHUB_REF:11}.zip" -O "mcn.zip"
+    - name: Prepare assets
+      run: |
+        WORKSHOP_ID=2462509364
+        echo WORKSHOP_ID=${WORKSHOP_ID} >> ${GITHUB_ENV}
+        wget "https://github.com/hmlendea/testRepo/releases/download/${{github.ref_name}}/mcn_CK3_${GITHUB_REF:11}.zip" -O "mcn.zip"
+        unzip "mcn.zip"
+        printf "\nremote_file_id=\"${WORKSHOP_ID}\"" >> "more-cultural-names/descriptor.mod"
     - name: steam-workshop-upload
       uses: Weilbyte/steam-workshop-upload@v1
       with:
         appid: 1158310
-        itemid: 2462509364
-        path: "mcn.zip"
+        itemid: ${{env.WORKSHOP_ID}}
+        path: "more-cultural-names/"
         changenote: "[url=https://steamcommunity.com/linkfilter/?url=https://github.com/hmlendea/more-cultural-names/releases/tag/${{github.ref_name}}]Version ${{github.ref_name}}[/url]"
       env:
         STEAM_USERNAME: ${{secrets.STEAM_USERNAME}}
