@@ -8,7 +8,7 @@ on:
 
 jobs:
     myJob:
-        name: ${{ matrix.config.gameid }}
+        name: ${{matrix.config.gameid}}
         runs-on: ubuntu-latest
 
         strategy:
@@ -23,7 +23,7 @@ jobs:
         steps:
             - name: Prepare
               run: |
-                echo "GameId: ${{ matrix.config.gameid }}, SteamAppId: ${{ matrix.config.steam_appid }}, SteamItemId: ${{ matrix.config.steam_itemid }}, DirName: ${{ matrix.config.dirname }}"
+                echo "GameId: ${{matrix.config.gameid}}, SteamAppId: ${{matrix.config.steam_appid}}, SteamItemId: ${{matrix.config.steam_itemid}}, DirName: ${{matrix.config.dirname}}"
 
             - name: Wait
               run: |
