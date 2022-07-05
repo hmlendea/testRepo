@@ -8,7 +8,7 @@ on:
 
 jobs:
     myJob:
-        name: ${{ matrix.config.game_id }}
+        name: ${{ matrix.config.gameid }}
         runs-on: ubuntu-latest
 
         strategy:
