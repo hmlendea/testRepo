@@ -3,14 +3,13 @@ name: Sequential Jobs
 on:
     push:
         branches: [ master ]
-    pull_request:
-        branches: [ master ]
 
     workflow_dispatch:
 
 jobs:
     myJob:
         name: ${{ matrix.config.game_id }}
+        runs-on: ubuntu-latest
 
         strategy:
             max-parallel: 1
@@ -22,11 +21,11 @@ jobs:
                     - { gameid: 'CK3IBL', steam_appid: '1158310', steam_itemid: '2490281800', dirname: 'ibl-more-cultural-names' }
 
         steps:
-            - name: ${{ matrix.config.gameid }} - Prepare
+            - name: Prepare
               run: |
                 echo "GameId: ${{ matrix.config.gameid }}, SteamAppId: ${{ matrix.config.steam_appid }}, SteamItemId: ${{ matrix.config.steam_itemid }}, DirName: ${{ matrix.config.dirname }}"
 
-            - name: ${{ matrix.config.gameid }} - Wait
+            - name: Wait
               run: |
                 WAIT_SEC=10
                 echo "Waiting ${WAIT_SEC} seconds..."
