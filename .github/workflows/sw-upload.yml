@@ -19,6 +19,9 @@ jobs:
         wget "https://github.com/hmlendea/more-cultural-names/releases/download/v22.344.0/mcn_CK3_22.344.0.zip" -O "CK3.zip"
         unzip "CK3.zip" -d "CK3/"
 
+    - name: Install dependencies
+      run: sudo apt install -y libicu
+
     - name: Crusader Kings 3
       uses: hmlendea/steam-workshop-upload@v1
       with:
