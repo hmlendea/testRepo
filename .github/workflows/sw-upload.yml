@@ -20,7 +20,7 @@ jobs:
         unzip "CK3.zip" -d "CK3/"
 
     - name: Crusader Kings 3
-      uses: Weilbyte/steam-workshop-upload@v1.1
+      uses: hmlendea/steam-workshop-upload@v1
       with:
         appid: 1158310
         itemid: 2462509364
