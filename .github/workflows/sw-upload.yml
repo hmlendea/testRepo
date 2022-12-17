@@ -20,7 +20,7 @@ jobs:
         unzip "CK3.zip" -d "CK3/"
 
     - name: Install dependencies
-      run: sudo apt install -y libicu66
+      run: sudo apt install -y icu
 
     - name: Crusader Kings 3
       uses: hmlendea/steam-workshop-upload@v1
