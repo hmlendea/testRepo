@@ -20,7 +20,7 @@ jobs:
         unzip "CK3.zip" -d "CK3/"
 
     - name: Crusader Kings 3
-      uses: hmlendea/steam-workshop-upload@v1
+      uses: hmlendea/steam-workshop-update@v1.0.0
       with:
         appid: 1158310
         itemid: 2462509364
@@ -29,4 +29,4 @@ jobs:
       env:
         STEAM_USERNAME: ${{secrets.STEAM_USERNAME}}
         STEAM_PASSWORD: ${{secrets.STEAM_PASSWORD}}
-        STEAM_TFASEED: ${{secrets.STEAM_TFASEED}}
+        STEAM_2FASEED: ${{secrets.STEAM_2FASEED}}
